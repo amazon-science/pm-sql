@@ -1,0 +1,39 @@
+{
+  "rung": "R3c",
+  "fold": 3,
+  "model_id": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "region": "us-west-2",
+  "prompt_sha256": "818f00b23d1be61e5f7e4db2fa094c7f71c9413b9a06d940476faadf2f6efb1c",
+  "prompt_blocks": [
+    "role",
+    "schema",
+    "data_context",
+    "answer_format",
+    "examples"
+  ],
+  "prompt_text": "You are an expert SQL analyst working with a process mining event log. Produce the SQLite query that answers the user's question.\n\n## Schema\n\n```sql\nCREATE TABLE event_log (\n    id        INT PRIMARY KEY,\n    activity  TEXT COLLATE NOCASE,\n    timestamp DATETIME,\n    resource  TEXT COLLATE NOCASE,\n    cost      NUMERIC,\n    idcase    TEXT COLLATE NOCASE\n);\n```\n\n## Data Context\n\nTravel expense reimbursement process from a Dutch university. The log holds\n72,151 events across 6,449 cases, 34 distinct activities and\n63 distinct resources, spanning 2016-10-04 to 2020-05-09.\n\nEach case (`idcase`) is one declaration moving through approval steps. Case\nidentifiers have the format \"declaration 1002\".\n\nTimestamps render as DD/MM/YYYY: \"05/02/2017\" is 5 February 2017.\n\nActivity and resource values are case-sensitive; match them exactly as listed.\n\nActivities (34):\n- Declaration approved by administration\n- Declaration approved by budget owner\n- Declaration approved by pre-approver\n- Declaration approved by supervisor\n- Declaration final approved by director\n- Declaration final approved by supervisor\n- Declaration rejected by administration\n- Declaration rejected by budget owner\n- Declaration rejected by director\n- Declaration rejected by employee\n- Declaration rejected by missing\n- Declaration rejected by pre-approver\n- Declaration rejected by supervisor\n- Declaration saved by employee\n- Declaration submitted by employee\n- End trip\n- Payment handled\n- Permit approved by administration\n- Permit approved by budget owner\n- Permit approved by pre-approver\n- Permit approved by supervisor\n- Permit final approved by director\n- Permit final approved by supervisor\n- Permit rejected by administration\n- Permit rejected by budget owner\n- Permit rejected by director\n- Permit rejected by employee\n- Permit rejected by missing\n- Permit rejected by pre-approver\n- Permit rejected by supervisor\n- Permit submitted by employee\n- Request payment\n- Send reminder\n- Start trip\n\nUse SQLite syntax.\n\n## Answer Format\n\nReply with only the SQL, inside <final_sql> tags:\n\n<final_sql>SELECT ... FROM event_log ...</final_sql>\n\n## Examples\n\n<examples>\n<example>\n<question>How many performance events of the 'declaration approved by administration' activity were carried out by each resource?</question>\n<sql>SELECT count(*), resource FROM event_log WHERE activity = 'Declaration approved by administration' GROUP BY resource</sql>\n</example>\n<example>\n<question>Which activities cost more than 1000 and were carried out under the responsibility of a supervisor or director?</question>\n<sql>SELECT DISTINCT activity FROM event_log WHERE (activity LIKE '%supervisor%' OR activity LIKE '%director%' ) AND cost > 1000</sql>\n</example>\n<example>\n<question>How many cases have no cost?</question>\n<sql>SELECT COUNT(*) FROM (SELECT DISTINCT idcase FROM event_log where cost IS NULL EXCEPT SELECT DISTINCT idcase FROM event_log where cost IS NOT NULL)</sql>\n</example>\n<example>\n<question>Which case was the last to perform a 'declaration final approved by director' activity?</question>\n<sql>SELECT idcase FROM event_log WHERE activity = 'Declaration final approved by director' ORDER by timestamp DESC LIMIT 1</sql>\n</example>\n<example>\n<question>What are the resources that were not working on March 31, 2018?</question>\n<sql>SELECT distinct resource FROM event_log EXCEPT SELECT distinct resource FROM event_log where strftime('%Y-%m-%d', timestamp) =  '2018-03-31'</sql>\n</example>\n</examples>",
+  "example_uids": [
+    "264",
+    "842",
+    "995",
+    "1240",
+    "1576"
+  ],
+  "vocab_rows": [],
+  "max_tool_calls": 5,
+  "temperature": 0,
+  "n_questions": 330,
+  "n_run_this_invocation": 330,
+  "git_commit": "272dddc1e6fd4a0ae793860bc5aebad2de21a7af",
+  "elapsed_s": 207.1,
+  "tokens": {
+    "input": 298687,
+    "output": 28609
+  },
+  "tool_calls": 0,
+  "errors": 0,
+  "infra_failures": 0,
+  "aborted": false,
+  "python": "3.12.2",
+  "sqlite": "3.51.1"
+}

@@ -1,0 +1,878 @@
+[
+  {
+    "rung": "R0",
+    "note": "published GPT-3.5 SQL, re-scored",
+    "fold_specific": false,
+    "n_runs": 1,
+    "n_scored": 1655,
+    "n_missing": 0,
+    "duplicate_predictions": 0,
+    "pooled_col_agnostic": 48.1,
+    "pooled_standard": 34.86,
+    "fold_mean": 48.1,
+    "fold_sd": 1.58,
+    "ci95": [
+      45.68,
+      50.45
+    ],
+    "per_fold": {
+      "0": 47.29,
+      "1": 49.7,
+      "2": 49.7,
+      "3": 46.06,
+      "4": 47.75
+    },
+    "errors": {
+      "wrong_result": 828,
+      "sql_error": 22,
+      "timeout": 9
+    },
+    "breakdowns": {
+      "hardness": {
+        "easy": [
+          215,
+          322
+        ],
+        "extra": [
+          34,
+          97
+        ],
+        "hard": [
+          84,
+          251
+        ],
+        "medium": [
+          414,
+          620
+        ],
+        "no_hardness": [
+          49,
+          365
+        ]
+      },
+      "level": {
+        "cases": [
+          270,
+          743
+        ],
+        "events": [
+          526,
+          912
+        ]
+      },
+      "vocab": {
+        "Domain": [
+          32,
+          349
+        ],
+        "Generic": [
+          339,
+          568
+        ],
+        "Value": [
+          425,
+          738
+        ]
+      },
+      "base_para": {
+        "base": [
+          114,
+          205
+        ],
+        "paraphrase": [
+          682,
+          1450
+        ]
+      }
+    },
+    "prompt_sha256": [],
+    "model_ids": [],
+    "example_uids": [],
+    "tool_calls": 0,
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "elapsed_s": 0
+  },
+  {
+    "rung": "R1",
+    "note": "model upgrade, bare schema",
+    "fold_specific": false,
+    "n_runs": 1,
+    "n_scored": 1655,
+    "n_missing": 0,
+    "duplicate_predictions": 0,
+    "pooled_col_agnostic": 66.89,
+    "pooled_standard": 52.45,
+    "fold_mean": 66.88,
+    "fold_sd": 8.63,
+    "ci95": [
+      64.65,
+      69.12
+    ],
+    "per_fold": {
+      "0": 54.82,
+      "1": 62.5,
+      "2": 77.11,
+      "3": 72.12,
+      "4": 67.87
+    },
+    "errors": {
+      "wrong_result": 508,
+      "timeout": 33,
+      "sql_error": 7
+    },
+    "breakdowns": {
+      "hardness": {
+        "easy": [
+          277,
+          322
+        ],
+        "extra": [
+          55,
+          97
+        ],
+        "hard": [
+          128,
+          251
+        ],
+        "medium": [
+          506,
+          620
+        ],
+        "no_hardness": [
+          141,
+          365
+        ]
+      },
+      "level": {
+        "cases": [
+          458,
+          743
+        ],
+        "events": [
+          649,
+          912
+        ]
+      },
+      "vocab": {
+        "Domain": [
+          148,
+          349
+        ],
+        "Generic": [
+          434,
+          568
+        ],
+        "Value": [
+          525,
+          738
+        ]
+      },
+      "base_para": {
+        "base": [
+          149,
+          205
+        ],
+        "paraphrase": [
+          958,
+          1450
+        ]
+      }
+    },
+    "prompt_sha256": [
+      "9f1bd5a5c2b87e093a484026fc9b70c810df1065a3972c8dbd4870e9f3dd2109"
+    ],
+    "model_ids": [
+      "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+    ],
+    "example_uids": [],
+    "tool_calls": 0,
+    "tokens_in": 281897,
+    "tokens_out": 176026,
+    "elapsed_s": 1170.7
+  },
+  {
+    "rung": "R2",
+    "note": "+ factual data context (activities, formats)",
+    "fold_specific": false,
+    "n_runs": 1,
+    "n_scored": 1655,
+    "n_missing": 0,
+    "duplicate_predictions": 0,
+    "pooled_col_agnostic": 70.57,
+    "pooled_standard": 56.44,
+    "fold_mean": 70.57,
+    "fold_sd": 4.76,
+    "ci95": [
+      68.4,
+      72.75
+    ],
+    "per_fold": {
+      "0": 65.66,
+      "1": 69.21,
+      "2": 78.31,
+      "3": 71.21,
+      "4": 68.47
+    },
+    "errors": {
+      "wrong_result": 451,
+      "timeout": 29,
+      "sql_error": 7
+    },
+    "breakdowns": {
+      "hardness": {
+        "easy": [
+          286,
+          322
+        ],
+        "extra": [
+          55,
+          97
+        ],
+        "hard": [
+          145,
+          251
+        ],
+        "medium": [
+          518,
+          620
+        ],
+        "no_hardness": [
+          164,
+          365
+        ]
+      },
+      "level": {
+        "cases": [
+          498,
+          743
+        ],
+        "events": [
+          670,
+          912
+        ]
+      },
+      "vocab": {
+        "Domain": [
+          198,
+          349
+        ],
+        "Generic": [
+          425,
+          568
+        ],
+        "Value": [
+          545,
+          738
+        ]
+      },
+      "base_para": {
+        "base": [
+          154,
+          205
+        ],
+        "paraphrase": [
+          1014,
+          1450
+        ]
+      }
+    },
+    "prompt_sha256": [
+      "cd20a3499866eda17366896f71a9fdb832bbf4538a4b31c00ddc82ed3a0b6b95"
+    ],
+    "model_ids": [
+      "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+    ],
+    "example_uids": [],
+    "tool_calls": 0,
+    "tokens_in": 904177,
+    "tokens_out": 163163,
+    "elapsed_s": 1113.1
+  },
+  {
+    "rung": "R3",
+    "note": "+ 5 few-shot examples, failure-clustered",
+    "fold_specific": true,
+    "n_runs": 5,
+    "n_scored": 1655,
+    "n_missing": 0,
+    "duplicate_predictions": 0,
+    "pooled_col_agnostic": 74.44,
+    "pooled_standard": 60.85,
+    "fold_mean": 74.44,
+    "fold_sd": 3.69,
+    "ci95": [
+      72.39,
+      76.56
+    ],
+    "per_fold": {
+      "0": 73.19,
+      "1": 75.61,
+      "2": 80.12,
+      "3": 73.03,
+      "4": 70.27
+    },
+    "errors": {
+      "wrong_result": 382,
+      "timeout": 38,
+      "sql_error": 3
+    },
+    "breakdowns": {
+      "hardness": {
+        "easy": [
+          299,
+          322
+        ],
+        "extra": [
+          70,
+          97
+        ],
+        "hard": [
+          179,
+          251
+        ],
+        "medium": [
+          535,
+          620
+        ],
+        "no_hardness": [
+          149,
+          365
+        ]
+      },
+      "level": {
+        "cases": [
+          505,
+          743
+        ],
+        "events": [
+          727,
+          912
+        ]
+      },
+      "vocab": {
+        "Domain": [
+          216,
+          349
+        ],
+        "Generic": [
+          461,
+          568
+        ],
+        "Value": [
+          555,
+          738
+        ]
+      },
+      "base_para": {
+        "base": [
+          160,
+          205
+        ],
+        "paraphrase": [
+          1072,
+          1450
+        ]
+      }
+    },
+    "prompt_sha256": [
+      "0670dcd19252c9976fa41f92cdcc8aea8ca2f6da308e6e483666fe0e357bf49d",
+      "0da78740f015c66858b276a5667e1243c52115d8fed56b0988691f5bb38f4c55",
+      "11c94c95f70cee4ff4213ddfbdee0e150a6aa06ea55b8d8a695641c01436b5d5",
+      "b83cd93e45b9d08ad440bd3d90b13f8ae0c85d1eff8c655898dd71aa64ae56a6",
+      "eb1c9cddebf1cec570c74fc83df44d15be0b0d4b0c2cd919532aa3ddc5911d6a"
+    ],
+    "model_ids": [
+      "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+    ],
+    "example_uids": [
+      "1247",
+      "1286",
+      "1462",
+      "160",
+      "194",
+      "223",
+      "234",
+      "692",
+      "746",
+      "754",
+      "926"
+    ],
+    "tool_calls": 0,
+    "tokens_in": 1634967,
+    "tokens_out": 140458,
+    "elapsed_s": 2236.3
+  },
+  {
+    "rung": "R3c",
+    "note": "+ 5 few-shot examples, random [control]",
+    "fold_specific": true,
+    "n_runs": 5,
+    "n_scored": 1655,
+    "n_missing": 0,
+    "duplicate_predictions": 0,
+    "pooled_col_agnostic": 72.27,
+    "pooled_standard": 57.28,
+    "fold_mean": 72.27,
+    "fold_sd": 6.04,
+    "ci95": [
+      70.15,
+      74.44
+    ],
+    "per_fold": {
+      "0": 65.36,
+      "1": 72.56,
+      "2": 81.93,
+      "3": 70.61,
+      "4": 70.87
+    },
+    "errors": {
+      "wrong_result": 413,
+      "timeout": 42,
+      "sql_error": 4
+    },
+    "breakdowns": {
+      "hardness": {
+        "easy": [
+          301,
+          322
+        ],
+        "extra": [
+          61,
+          97
+        ],
+        "hard": [
+          152,
+          251
+        ],
+        "medium": [
+          519,
+          620
+        ],
+        "no_hardness": [
+          163,
+          365
+        ]
+      },
+      "level": {
+        "cases": [
+          501,
+          743
+        ],
+        "events": [
+          695,
+          912
+        ]
+      },
+      "vocab": {
+        "Domain": [
+          204,
+          349
+        ],
+        "Generic": [
+          437,
+          568
+        ],
+        "Value": [
+          555,
+          738
+        ]
+      },
+      "base_para": {
+        "base": [
+          153,
+          205
+        ],
+        "paraphrase": [
+          1043,
+          1450
+        ]
+      }
+    },
+    "prompt_sha256": [
+      "5d87a441aa932352c631688cee7cac22cdcb12e560458930a61f13870de9a11b",
+      "818f00b23d1be61e5f7e4db2fa094c7f71c9413b9a06d940476faadf2f6efb1c",
+      "8a4808c53b8a2847d9eed760a7b48b5e6d1d3c0828e9873930377f39828c41e5",
+      "8ce8ed38ed09c9493abc78ef747e33d774a3e1a449b61dd88c208ffe8842ed43",
+      "b4c5950db185a9d3860edbf3c72104a9d327db1c0a8adc05488c04bf03038ff9"
+    ],
+    "model_ids": [
+      "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+    ],
+    "example_uids": [
+      "1048",
+      "1240",
+      "1286",
+      "1327",
+      "1361",
+      "1519",
+      "1539",
+      "1576",
+      "1596",
+      "234",
+      "264",
+      "271",
+      "381",
+      "435",
+      "477",
+      "533",
+      "564",
+      "678",
+      "700",
+      "728",
+      "772",
+      "842",
+      "962",
+      "995"
+    ],
+    "tool_calls": 0,
+    "tokens_in": 1528638,
+    "tokens_out": 140111,
+    "elapsed_s": 1014.0
+  },
+  {
+    "rung": "R4",
+    "note": "+ validate_sql tool and agent loop",
+    "fold_specific": true,
+    "n_runs": 5,
+    "n_scored": 1655,
+    "n_missing": 0,
+    "duplicate_predictions": 0,
+    "pooled_col_agnostic": 77.4,
+    "pooled_standard": 62.48,
+    "fold_mean": 77.4,
+    "fold_sd": 4.1,
+    "ci95": [
+      75.41,
+      79.4
+    ],
+    "per_fold": {
+      "0": 73.8,
+      "1": 77.13,
+      "2": 84.04,
+      "3": 74.24,
+      "4": 77.78
+    },
+    "errors": {
+      "wrong_result": 374
+    },
+    "breakdowns": {
+      "hardness": {
+        "easy": [
+          301,
+          322
+        ],
+        "extra": [
+          67,
+          97
+        ],
+        "hard": [
+          180,
+          251
+        ],
+        "medium": [
+          546,
+          620
+        ],
+        "no_hardness": [
+          187,
+          365
+        ]
+      },
+      "level": {
+        "cases": [
+          542,
+          743
+        ],
+        "events": [
+          739,
+          912
+        ]
+      },
+      "vocab": {
+        "Domain": [
+          227,
+          349
+        ],
+        "Generic": [
+          480,
+          568
+        ],
+        "Value": [
+          574,
+          738
+        ]
+      },
+      "base_para": {
+        "base": [
+          163,
+          205
+        ],
+        "paraphrase": [
+          1118,
+          1450
+        ]
+      }
+    },
+    "prompt_sha256": [
+      "3222d92537ea1ad4427f8cf9157034f98412661d367df10b4d90fbcc0eb77982",
+      "59580cf31f6771b9fb5beda69748a2e6a6572862701c4c091fcb117e9c4c22c4",
+      "7154ed595f7a0fa572ffb1f953d520150b56777dc51a7bc012cc5a147739c245",
+      "7e9344d8a43d349a3221fe76e9d9d36b2525a7b251fb8651d8e75a1454ba8fd1",
+      "808ea494f763ca7deb29ec52f236df25c00cc1955fe2216b4edaf0e51de33d2c"
+    ],
+    "model_ids": [
+      "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+    ],
+    "example_uids": [
+      "1247",
+      "1286",
+      "1462",
+      "160",
+      "194",
+      "223",
+      "234",
+      "692",
+      "746",
+      "754",
+      "926"
+    ],
+    "tool_calls": 1831,
+    "tokens_in": 6460400,
+    "tokens_out": 306762,
+    "elapsed_s": 2112.7
+  },
+  {
+    "rung": "R5",
+    "note": "+ get_process_info tool, + mined vocabulary",
+    "fold_specific": true,
+    "n_runs": 5,
+    "n_scored": 1655,
+    "n_missing": 0,
+    "duplicate_predictions": 0,
+    "pooled_col_agnostic": 76.44,
+    "pooled_standard": 61.45,
+    "fold_mean": 76.44,
+    "fold_sd": 4.18,
+    "ci95": [
+      74.44,
+      78.49
+    ],
+    "per_fold": {
+      "0": 71.99,
+      "1": 78.66,
+      "2": 82.53,
+      "3": 73.94,
+      "4": 75.08
+    },
+    "errors": {
+      "wrong_result": 389,
+      "sql_error": 1
+    },
+    "breakdowns": {
+      "hardness": {
+        "easy": [
+          302,
+          322
+        ],
+        "extra": [
+          67,
+          97
+        ],
+        "hard": [
+          177,
+          251
+        ],
+        "medium": [
+          539,
+          620
+        ],
+        "no_hardness": [
+          180,
+          365
+        ]
+      },
+      "level": {
+        "cases": [
+          534,
+          743
+        ],
+        "events": [
+          731,
+          912
+        ]
+      },
+      "vocab": {
+        "Domain": [
+          219,
+          349
+        ],
+        "Generic": [
+          469,
+          568
+        ],
+        "Value": [
+          577,
+          738
+        ]
+      },
+      "base_para": {
+        "base": [
+          165,
+          205
+        ],
+        "paraphrase": [
+          1100,
+          1450
+        ]
+      }
+    },
+    "prompt_sha256": [
+      "1ef31490459dc81b8410b9de7d80a60df0b9b9d5be1d531b1ef8e574e9c73840",
+      "7348b9752a23cef4c4940511af2e4fc6858e78777ba80c3f26a618ad53e2d216",
+      "76408acb0215a8e59d7ce797c5bf08718e74e61578152bb7cc310eb6e70f67ff",
+      "e16b8692bea79307b01f6d7315ab70c51e20088d72eb1050d6108066c244fdea",
+      "f2e991df2939fccadd8391b5948f95e4cccb21f2187c5e0e0875f3d4699f2b63"
+    ],
+    "model_ids": [
+      "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+    ],
+    "example_uids": [
+      "1247",
+      "1286",
+      "1462",
+      "160",
+      "194",
+      "223",
+      "234",
+      "692",
+      "746",
+      "754",
+      "926"
+    ],
+    "tool_calls": 2117,
+    "tokens_in": 9157227,
+    "tokens_out": 349264,
+    "elapsed_s": 2316.2
+  },
+  {
+    "rung": "R6",
+    "note": "+ targeted examples from R5 training errors",
+    "fold_specific": true,
+    "n_runs": 5,
+    "n_scored": 1655,
+    "n_missing": 0,
+    "duplicate_predictions": 0,
+    "pooled_col_agnostic": 76.37,
+    "pooled_standard": 60.79,
+    "fold_mean": 76.37,
+    "fold_sd": 4.58,
+    "ci95": [
+      74.32,
+      78.37
+    ],
+    "per_fold": {
+      "0": 72.89,
+      "1": 77.13,
+      "2": 84.04,
+      "3": 73.64,
+      "4": 74.17
+    },
+    "errors": {
+      "wrong_result": 391
+    },
+    "breakdowns": {
+      "hardness": {
+        "easy": [
+          282,
+          322
+        ],
+        "extra": [
+          63,
+          97
+        ],
+        "hard": [
+          183,
+          251
+        ],
+        "medium": [
+          551,
+          620
+        ],
+        "no_hardness": [
+          185,
+          365
+        ]
+      },
+      "level": {
+        "cases": [
+          545,
+          743
+        ],
+        "events": [
+          719,
+          912
+        ]
+      },
+      "vocab": {
+        "Domain": [
+          230,
+          349
+        ],
+        "Generic": [
+          466,
+          568
+        ],
+        "Value": [
+          568,
+          738
+        ]
+      },
+      "base_para": {
+        "base": [
+          165,
+          205
+        ],
+        "paraphrase": [
+          1099,
+          1450
+        ]
+      }
+    },
+    "prompt_sha256": [
+      "1e3e1130095554c24d028efa68ca7a62df02291436e3193c84ad11f2ca2f73c4",
+      "49dc028614f476733afa07e324bbaba1dfab99a50fc52c556b0dd42cf74cb6bb",
+      "5974b32566ec5abfbff568643a0e0e9eeba55c8331ca8b44057cb7775005adcd",
+      "5e5c1344d48403c659d828b45614b3a943250572c4b3bc75c31496ffc1eb4029",
+      "8a9da471af0d7441a1a7d63587bf28be56a3077313eb88bc079bb38ea32f11b5"
+    ],
+    "model_ids": [
+      "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+    ],
+    "example_uids": [
+      "1151",
+      "1247",
+      "1286",
+      "1462",
+      "155",
+      "160",
+      "194",
+      "223",
+      "234",
+      "250",
+      "346",
+      "49",
+      "683",
+      "692",
+      "746",
+      "754",
+      "892",
+      "926",
+      "940"
+    ],
+    "tool_calls": 1980,
+    "tokens_in": 9981398,
+    "tokens_out": 300026,
+    "elapsed_s": 2070.1
+  }
+]

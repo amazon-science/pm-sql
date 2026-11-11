@@ -1,0 +1,1281 @@
+{
+  "n_groups": 205,
+  "n_answer_classes": 190,
+  "n_units": 178,
+  "merge_relation": "identical normalised gold SQL, then identical column-agnostic gold result digest",
+  "units": [
+    {
+      "unit_id": "1",
+      "group_ids": [
+        "1"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "2",
+      "group_ids": [
+        "2"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "3",
+      "group_ids": [
+        "3",
+        "8",
+        "12",
+        "81",
+        "107",
+        "111",
+        "112",
+        "135"
+      ],
+      "n_questions": 60
+    },
+    {
+      "unit_id": "4",
+      "group_ids": [
+        "4",
+        "131"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "5",
+      "group_ids": [
+        "5"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "6",
+      "group_ids": [
+        "6"
+      ],
+      "n_questions": 13
+    },
+    {
+      "unit_id": "7",
+      "group_ids": [
+        "7",
+        "43",
+        "123"
+      ],
+      "n_questions": 27
+    },
+    {
+      "unit_id": "9",
+      "group_ids": [
+        "9"
+      ],
+      "n_questions": 5
+    },
+    {
+      "unit_id": "10",
+      "group_ids": [
+        "10"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "11",
+      "group_ids": [
+        "11"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "13",
+      "group_ids": [
+        "13",
+        "141"
+      ],
+      "n_questions": 18
+    },
+    {
+      "unit_id": "14",
+      "group_ids": [
+        "14"
+      ],
+      "n_questions": 5
+    },
+    {
+      "unit_id": "15",
+      "group_ids": [
+        "15",
+        "91"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "16",
+      "group_ids": [
+        "16",
+        "61"
+      ],
+      "n_questions": 28
+    },
+    {
+      "unit_id": "17",
+      "group_ids": [
+        "17"
+      ],
+      "n_questions": 15
+    },
+    {
+      "unit_id": "18",
+      "group_ids": [
+        "18"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "19",
+      "group_ids": [
+        "19"
+      ],
+      "n_questions": 5
+    },
+    {
+      "unit_id": "20",
+      "group_ids": [
+        "20"
+      ],
+      "n_questions": 5
+    },
+    {
+      "unit_id": "21",
+      "group_ids": [
+        "21"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "22",
+      "group_ids": [
+        "22",
+        "163"
+      ],
+      "n_questions": 19
+    },
+    {
+      "unit_id": "23",
+      "group_ids": [
+        "23"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "24",
+      "group_ids": [
+        "24"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "25",
+      "group_ids": [
+        "25"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "26",
+      "group_ids": [
+        "26"
+      ],
+      "n_questions": 5
+    },
+    {
+      "unit_id": "27",
+      "group_ids": [
+        "27"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "28",
+      "group_ids": [
+        "28",
+        "29"
+      ],
+      "n_questions": 18
+    },
+    {
+      "unit_id": "30",
+      "group_ids": [
+        "30"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "31",
+      "group_ids": [
+        "31"
+      ],
+      "n_questions": 3
+    },
+    {
+      "unit_id": "32",
+      "group_ids": [
+        "32"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "33",
+      "group_ids": [
+        "33",
+        "34"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "35",
+      "group_ids": [
+        "35"
+      ],
+      "n_questions": 4
+    },
+    {
+      "unit_id": "36",
+      "group_ids": [
+        "36"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "37",
+      "group_ids": [
+        "37"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "38",
+      "group_ids": [
+        "38"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "39",
+      "group_ids": [
+        "39"
+      ],
+      "n_questions": 3
+    },
+    {
+      "unit_id": "40",
+      "group_ids": [
+        "40"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "41",
+      "group_ids": [
+        "41"
+      ],
+      "n_questions": 4
+    },
+    {
+      "unit_id": "42",
+      "group_ids": [
+        "42"
+      ],
+      "n_questions": 3
+    },
+    {
+      "unit_id": "44",
+      "group_ids": [
+        "44"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "45",
+      "group_ids": [
+        "45"
+      ],
+      "n_questions": 4
+    },
+    {
+      "unit_id": "46",
+      "group_ids": [
+        "46"
+      ],
+      "n_questions": 5
+    },
+    {
+      "unit_id": "47",
+      "group_ids": [
+        "47",
+        "48"
+      ],
+      "n_questions": 18
+    },
+    {
+      "unit_id": "49",
+      "group_ids": [
+        "49"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "50",
+      "group_ids": [
+        "50"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "51",
+      "group_ids": [
+        "51"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "52",
+      "group_ids": [
+        "52"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "53",
+      "group_ids": [
+        "53"
+      ],
+      "n_questions": 14
+    },
+    {
+      "unit_id": "54",
+      "group_ids": [
+        "54"
+      ],
+      "n_questions": 5
+    },
+    {
+      "unit_id": "55",
+      "group_ids": [
+        "55"
+      ],
+      "n_questions": 5
+    },
+    {
+      "unit_id": "56",
+      "group_ids": [
+        "56"
+      ],
+      "n_questions": 4
+    },
+    {
+      "unit_id": "57",
+      "group_ids": [
+        "57"
+      ],
+      "n_questions": 26
+    },
+    {
+      "unit_id": "58",
+      "group_ids": [
+        "58"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "59",
+      "group_ids": [
+        "59"
+      ],
+      "n_questions": 17
+    },
+    {
+      "unit_id": "60",
+      "group_ids": [
+        "60"
+      ],
+      "n_questions": 18
+    },
+    {
+      "unit_id": "62",
+      "group_ids": [
+        "62"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "63",
+      "group_ids": [
+        "63"
+      ],
+      "n_questions": 12
+    },
+    {
+      "unit_id": "64",
+      "group_ids": [
+        "64"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "65",
+      "group_ids": [
+        "65"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "66",
+      "group_ids": [
+        "66"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "67",
+      "group_ids": [
+        "67"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "68",
+      "group_ids": [
+        "68"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "69",
+      "group_ids": [
+        "69"
+      ],
+      "n_questions": 16
+    },
+    {
+      "unit_id": "71",
+      "group_ids": [
+        "71",
+        "150"
+      ],
+      "n_questions": 12
+    },
+    {
+      "unit_id": "72",
+      "group_ids": [
+        "72",
+        "204"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "73",
+      "group_ids": [
+        "73"
+      ],
+      "n_questions": 19
+    },
+    {
+      "unit_id": "75",
+      "group_ids": [
+        "75"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "76",
+      "group_ids": [
+        "76"
+      ],
+      "n_questions": 12
+    },
+    {
+      "unit_id": "77",
+      "group_ids": [
+        "77"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "78",
+      "group_ids": [
+        "78"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "79",
+      "group_ids": [
+        "79"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "80",
+      "group_ids": [
+        "80",
+        "130"
+      ],
+      "n_questions": 19
+    },
+    {
+      "unit_id": "82",
+      "group_ids": [
+        "82"
+      ],
+      "n_questions": 5
+    },
+    {
+      "unit_id": "83",
+      "group_ids": [
+        "83",
+        "84"
+      ],
+      "n_questions": 12
+    },
+    {
+      "unit_id": "85",
+      "group_ids": [
+        "85"
+      ],
+      "n_questions": 5
+    },
+    {
+      "unit_id": "86",
+      "group_ids": [
+        "86"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "87",
+      "group_ids": [
+        "87"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "88",
+      "group_ids": [
+        "88"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "89",
+      "group_ids": [
+        "89"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "90",
+      "group_ids": [
+        "90"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "92",
+      "group_ids": [
+        "92",
+        "93",
+        "206"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "94",
+      "group_ids": [
+        "94"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "95",
+      "group_ids": [
+        "95"
+      ],
+      "n_questions": 4
+    },
+    {
+      "unit_id": "96",
+      "group_ids": [
+        "96"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "97",
+      "group_ids": [
+        "97"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "98",
+      "group_ids": [
+        "98"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "99",
+      "group_ids": [
+        "99"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "100",
+      "group_ids": [
+        "100"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "101",
+      "group_ids": [
+        "101"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "102",
+      "group_ids": [
+        "102"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "103",
+      "group_ids": [
+        "103"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "104",
+      "group_ids": [
+        "104"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "105",
+      "group_ids": [
+        "105"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "106",
+      "group_ids": [
+        "106",
+        "118"
+      ],
+      "n_questions": 15
+    },
+    {
+      "unit_id": "108",
+      "group_ids": [
+        "108"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "109",
+      "group_ids": [
+        "109"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "110",
+      "group_ids": [
+        "110"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "113",
+      "group_ids": [
+        "113"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "114",
+      "group_ids": [
+        "114"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "115",
+      "group_ids": [
+        "115"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "116",
+      "group_ids": [
+        "116"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "117",
+      "group_ids": [
+        "117"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "119",
+      "group_ids": [
+        "119"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "120",
+      "group_ids": [
+        "120"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "121",
+      "group_ids": [
+        "121",
+        "132"
+      ],
+      "n_questions": 13
+    },
+    {
+      "unit_id": "122",
+      "group_ids": [
+        "122"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "124",
+      "group_ids": [
+        "124"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "125",
+      "group_ids": [
+        "125"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "126",
+      "group_ids": [
+        "126"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "127",
+      "group_ids": [
+        "127"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "128",
+      "group_ids": [
+        "128"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "129",
+      "group_ids": [
+        "129"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "133",
+      "group_ids": [
+        "133"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "134",
+      "group_ids": [
+        "134"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "136",
+      "group_ids": [
+        "136"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "137",
+      "group_ids": [
+        "137"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "138",
+      "group_ids": [
+        "138"
+      ],
+      "n_questions": 4
+    },
+    {
+      "unit_id": "139",
+      "group_ids": [
+        "139"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "140",
+      "group_ids": [
+        "140"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "142",
+      "group_ids": [
+        "142"
+      ],
+      "n_questions": 12
+    },
+    {
+      "unit_id": "143",
+      "group_ids": [
+        "143"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "144",
+      "group_ids": [
+        "144"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "145",
+      "group_ids": [
+        "145"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "146",
+      "group_ids": [
+        "146"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "147",
+      "group_ids": [
+        "147"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "148",
+      "group_ids": [
+        "148"
+      ],
+      "n_questions": 17
+    },
+    {
+      "unit_id": "149",
+      "group_ids": [
+        "149"
+      ],
+      "n_questions": 30
+    },
+    {
+      "unit_id": "151",
+      "group_ids": [
+        "151"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "152",
+      "group_ids": [
+        "152"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "153",
+      "group_ids": [
+        "153"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "154",
+      "group_ids": [
+        "154"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "155",
+      "group_ids": [
+        "155"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "156",
+      "group_ids": [
+        "156"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "157",
+      "group_ids": [
+        "157",
+        "158"
+      ],
+      "n_questions": 17
+    },
+    {
+      "unit_id": "159",
+      "group_ids": [
+        "159"
+      ],
+      "n_questions": 12
+    },
+    {
+      "unit_id": "160",
+      "group_ids": [
+        "160"
+      ],
+      "n_questions": 12
+    },
+    {
+      "unit_id": "161",
+      "group_ids": [
+        "161"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "162",
+      "group_ids": [
+        "162"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "164",
+      "group_ids": [
+        "164",
+        "174"
+      ],
+      "n_questions": 17
+    },
+    {
+      "unit_id": "165",
+      "group_ids": [
+        "165"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "166",
+      "group_ids": [
+        "166"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "167",
+      "group_ids": [
+        "167"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "168",
+      "group_ids": [
+        "168"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "169",
+      "group_ids": [
+        "169"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "170",
+      "group_ids": [
+        "170"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "171",
+      "group_ids": [
+        "171"
+      ],
+      "n_questions": 12
+    },
+    {
+      "unit_id": "172",
+      "group_ids": [
+        "172"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "173",
+      "group_ids": [
+        "173"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "175",
+      "group_ids": [
+        "175"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "176",
+      "group_ids": [
+        "176"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "177",
+      "group_ids": [
+        "177"
+      ],
+      "n_questions": 7
+    },
+    {
+      "unit_id": "178",
+      "group_ids": [
+        "178"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "179",
+      "group_ids": [
+        "179"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "180",
+      "group_ids": [
+        "180"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "181",
+      "group_ids": [
+        "181"
+      ],
+      "n_questions": 11
+    },
+    {
+      "unit_id": "182",
+      "group_ids": [
+        "182"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "183",
+      "group_ids": [
+        "183"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "184",
+      "group_ids": [
+        "184"
+      ],
+      "n_questions": 10
+    },
+    {
+      "unit_id": "185",
+      "group_ids": [
+        "185"
+      ],
+      "n_questions": 9
+    },
+    {
+      "unit_id": "186",
+      "group_ids": [
+        "186"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "187",
+      "group_ids": [
+        "187"
+      ],
+      "n_questions": 5
+    },
+    {
+      "unit_id": "188",
+      "group_ids": [
+        "188"
+      ],
+      "n_questions": 3
+    },
+    {
+      "unit_id": "189",
+      "group_ids": [
+        "189"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "190",
+      "group_ids": [
+        "190"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "191",
+      "group_ids": [
+        "191"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "192",
+      "group_ids": [
+        "192"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "193",
+      "group_ids": [
+        "193"
+      ],
+      "n_questions": 8
+    },
+    {
+      "unit_id": "194",
+      "group_ids": [
+        "194"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "195",
+      "group_ids": [
+        "195"
+      ],
+      "n_questions": 3
+    },
+    {
+      "unit_id": "196",
+      "group_ids": [
+        "196"
+      ],
+      "n_questions": 5
+    },
+    {
+      "unit_id": "197",
+      "group_ids": [
+        "197"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "198",
+      "group_ids": [
+        "198"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "199",
+      "group_ids": [
+        "199"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "200",
+      "group_ids": [
+        "200"
+      ],
+      "n_questions": 3
+    },
+    {
+      "unit_id": "201",
+      "group_ids": [
+        "201"
+      ],
+      "n_questions": 3
+    },
+    {
+      "unit_id": "202",
+      "group_ids": [
+        "202"
+      ],
+      "n_questions": 3
+    },
+    {
+      "unit_id": "203",
+      "group_ids": [
+        "203"
+      ],
+      "n_questions": 3
+    },
+    {
+      "unit_id": "205",
+      "group_ids": [
+        "205"
+      ],
+      "n_questions": 6
+    },
+    {
+      "unit_id": "207",
+      "group_ids": [
+        "207"
+      ],
+      "n_questions": 2
+    }
+  ]
+}

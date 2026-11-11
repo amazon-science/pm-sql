@@ -1,0 +1,29 @@
+*~
+*#
+*.swp
+
+*.DS_Store
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+/.coverage
+/.coverage.*
+/.cache
+/.pytest_cache
+/.mypy_cache
+
+/doc/_apidoc/
+/build
+
+# Benchmark data and derived results (not redistributed; regenerate locally)
+dataset.tsv
+event_log.sqlite
+*.db
+experiments/evaluation/gold_results.json
+
+# Local credentials / env
+.env
+*.pem

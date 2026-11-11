@@ -1,0 +1,20 @@
+{
+  "fold": 2,
+  "prompt_sha256": "49dc028614f476733afa07e324bbaba1dfab99a50fc52c556b0dd42cf74cb6bb",
+  "n_held_out": 332,
+  "passed": true,
+  "findings": [
+    {
+      "check": "C2_question_near_dup",
+      "severity": "WARN",
+      "detail": "prompt \"List the five resources that worked on the most events.\" ~ held-out uid 155 (group 19) \"List the five resources that worked on the most cases.\" [gold answer differs; wording only]",
+      "score": 0.7142857142857143
+    },
+    {
+      "check": "C2_question_near_dup",
+      "severity": "WARN",
+      "detail": "prompt \"How many cases went through the 'end trip' activity between \" ~ held-out uid 363 (group 51) \"Which cases went through the 'end trip' activity between 201\" [gold answer differs; wording only]",
+      "score": 0.6666666666666666
+    }
+  ]
+}

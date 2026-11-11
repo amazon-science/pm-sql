@@ -1,0 +1,14 @@
+{
+  "fold": 2,
+  "prompt_sha256": "e16b8692bea79307b01f6d7315ab70c51e20088d72eb1050d6108066c244fdea",
+  "n_held_out": 332,
+  "passed": true,
+  "findings": [
+    {
+      "check": "C2_question_near_dup",
+      "severity": "WARN",
+      "detail": "prompt \"List the five resources that worked on the most events.\" ~ held-out uid 155 (group 19) \"List the five resources that worked on the most cases.\" [gold answer differs; wording only]",
+      "score": 0.7142857142857143
+    }
+  ]
+}

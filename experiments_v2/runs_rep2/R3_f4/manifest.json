@@ -1,0 +1,39 @@
+{
+  "rung": "R3",
+  "fold": 4,
+  "model_id": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "region": "us-west-2",
+  "prompt_sha256": "11c94c95f70cee4ff4213ddfbdee0e150a6aa06ea55b8d8a695641c01436b5d5",
+  "prompt_blocks": [
+    "role",
+    "schema",
+    "data_context",
+    "answer_format",
+    "examples"
+  ],
+  "prompt_text": "You are an expert SQL analyst working with a process mining event log. Produce the SQLite query that answers the user's question.\n\n## Schema\n\n```sql\nCREATE TABLE event_log (\n    id        INT PRIMARY KEY,\n    activity  TEXT COLLATE NOCASE,\n    timestamp DATETIME,\n    resource  TEXT COLLATE NOCASE,\n    cost      NUMERIC,\n    idcase    TEXT COLLATE NOCASE\n);\n```\n\n## Data Context\n\nTravel expense reimbursement process from a Dutch university. The log holds\n72,151 events across 6,449 cases, 34 distinct activities and\n63 distinct resources, spanning 2016-10-04 to 2020-05-09.\n\nEach case (`idcase`) is one declaration moving through approval steps. Case\nidentifiers have the format \"declaration 1002\".\n\nTimestamps render as DD/MM/YYYY: \"05/02/2017\" is 5 February 2017.\n\nActivity and resource values are case-sensitive; match them exactly as listed.\n\nActivities (34):\n- Declaration approved by administration\n- Declaration approved by budget owner\n- Declaration approved by pre-approver\n- Declaration approved by supervisor\n- Declaration final approved by director\n- Declaration final approved by supervisor\n- Declaration rejected by administration\n- Declaration rejected by budget owner\n- Declaration rejected by director\n- Declaration rejected by employee\n- Declaration rejected by missing\n- Declaration rejected by pre-approver\n- Declaration rejected by supervisor\n- Declaration saved by employee\n- Declaration submitted by employee\n- End trip\n- Payment handled\n- Permit approved by administration\n- Permit approved by budget owner\n- Permit approved by pre-approver\n- Permit approved by supervisor\n- Permit final approved by director\n- Permit final approved by supervisor\n- Permit rejected by administration\n- Permit rejected by budget owner\n- Permit rejected by director\n- Permit rejected by employee\n- Permit rejected by missing\n- Permit rejected by pre-approver\n- Permit rejected by supervisor\n- Permit submitted by employee\n- Request payment\n- Send reminder\n- Start trip\n\nUse SQLite syntax.\n\n## Answer Format\n\nReply with only the SQL, inside <final_sql> tags:\n\n<final_sql>SELECT ... FROM event_log ...</final_sql>\n\n## Examples\n\n<examples>\n<example>\n<question>Which cases have the greatest number of events?</question>\n<sql>SELECT idcase FROM event_log GROUP BY idcase HAVING COUNT(*) = (SELECT  COUNT(*) FROM event_log GROUP BY idcase ORDER BY count(*) DESC LIMIT 1)</sql>\n</example>\n<example>\n<question>How many cases, whose event occurred between 5/1/2017 and 6/1/2017, is each resource associated with?</question>\n<sql>SELECT COUNT(DISTINCT idcase), resource FROM event_log WHERE timestamp between '2017-05-01' and '2017-06-01' GROUP BY resource</sql>\n</example>\n<example>\n<question>What are the 10 cases, in descending order, with the most activities performed?</question>\n<sql>SELECT idcase FROM event_log GROUP BY idcase HAVING COUNT(*) IN (SELECT Count(*) FROM event_log GROUP BY idcase ORDER BY Count(*) Desc LIMIT 10) order by idcase DESC</sql>\n</example>\n<example>\n<question>List the existing resources in the event log in descending order of the number of times each of them acted on the 'declaration final approved by supervisor' activity.</question>\n<sql>select resource from event_log where activity = 'Declaration final approved by supervisor' group by resource order by count(*) DESC</sql>\n</example>\n<example>\n<question>How many times was each resource responsible for performing the first occurrence of the 'declaration rejected by pre-approver' activity in a case?</question>\n<sql>SELECT count(*), resource FROM (SELECT resource, MIN(timestamp) FROM event_log where activity = 'Declaration rejected by pre-approver' GROUP by resource, idcase) GROUP by resource</sql>\n</example>\n</examples>",
+  "example_uids": [
+    "194",
+    "692",
+    "223",
+    "754",
+    "1462"
+  ],
+  "vocab_rows": [],
+  "max_tool_calls": 5,
+  "temperature": 0,
+  "n_questions": 333,
+  "n_run_this_invocation": 333,
+  "git_commit": "6537e2f633accca43207513412c35c1fb60c17e1",
+  "elapsed_s": 216.3,
+  "tokens": {
+    "input": 325897,
+    "output": 31675
+  },
+  "tool_calls": 0,
+  "errors": 0,
+  "infra_failures": 0,
+  "aborted": false,
+  "python": "3.12.2",
+  "sqlite": "3.51.1"
+}

@@ -1,0 +1,20 @@
+{
+  "fold": 1,
+  "prompt_sha256": "fe6e2625eae7546f423d5c8e6f2e65a534a562441e683c15ace18b0f38c4a15b",
+  "n_held_out": 328,
+  "passed": true,
+  "findings": [
+    {
+      "check": "C2_question_near_dup",
+      "severity": "WARN",
+      "detail": "prompt \"Which cases have the greatest number of events?\" ~ held-out uid 235 (group 29) \"What are the 10 cases in descending order with the greatest \" [gold answer differs; wording only]",
+      "score": 0.5714285714285714
+    },
+    {
+      "check": "C4_prose_quotes_benchmark",
+      "severity": "WARN",
+      "detail": "prose phrase \"05/02/2017\" content-words appear in 6 held-out question(s), e.g. uid 940 (group 119)",
+      "score": null
+    }
+  ]
+}

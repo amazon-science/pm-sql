@@ -1,0 +1,14 @@
+{
+  "fold": 3,
+  "prompt_sha256": "9dfe14c6178eeaf3c12a3ad9722b0c15bb3ec21a878dbdeca33abdd5833e365b",
+  "n_held_out": 330,
+  "passed": true,
+  "findings": [
+    {
+      "check": "C3_sql_template_match",
+      "severity": "WARN",
+      "detail": "prompt SQL has the same shape as the gold answer for held-out uid 133 (group 17), differing only in literals",
+      "score": 1.0
+    }
+  ]
+}
