@@ -1,7 +1,0 @@
-{
-  "fold": 4,
-  "prompt_sha256": "76408acb0215a8e59d7ce797c5bf08718e74e61578152bb7cc310eb6e70f67ff",
-  "n_held_out": 333,
-  "passed": true,
-  "findings": []
-}

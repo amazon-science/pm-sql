@@ -1,91 +1,138 @@
 # PM-SQL: An Agentic Architecture for Querying Event Logs
 
-PM-SQL is a progressive, agentic architecture for translating natural-language
-questions into SQL over process-mining event logs. Starting from a published
-baseline, it adds one component at a time (a model upgrade, few-shot examples,
-an agent loop that validates SQL against the database, and domain prompt
-content with an optional process-mining tool) and measures each component's
-contribution under 5-fold cross-validation.
+PM-SQL translates natural-language questions into SQL over process-mining event
+logs. Built up one component at a time — a model upgrade, few-shot examples, an
+agent loop that validates SQL against the database, and domain prompt content
+with a process-mining tool — it raises execution accuracy on the
+Text-2-SQL-4-PM benchmark from a published **47.6%** to **79.4%**.
 
-This repository contains the **evaluation code, prompts, and few-shot examples**
-used in the paper. It does **not** contain the benchmark questions, gold SQL, or
-the event log (see [Data](#data)).
+`run.py` reproduces this end to end: it generates SQL for the benchmark on
+Amazon Bedrock, scores the output with the benchmark authors' evaluator, and
+prints the accuracy table.
 
-## Benchmark
-
-We evaluate on the **Text-2-SQL-4-PM** benchmark (G. Yamate and S. M. Peres,
-University of São Paulo; arXiv:2509.09684), 1,655 natural-language questions
-with gold SQL over the **BPIC 2020 International Declarations** event log
-(B. F. van Dongen, 4TU.ResearchData, licensed CC BY-NC 4.0). Both are publicly
-available from their original sources; neither is redistributed here.
-
-## Repository layout
-
-| Path | Contents |
-|---|---|
-| `experiments_v2/` | The cross-validated pipeline: ladder runner, fold assignments, leakage gate, scorer, prompt builder, and run manifests/predictions |
-| `experiments_v2/common/` | Core modules (runner, folds, eval, prompt_builder, tools, example_selector, vocab_miner) |
-| `experiments_v2/config/` | Fold partition, answer units, gold digests, admissibility rules |
-| `experiments_v2/runs*/` | Run manifests and per-question predictions (model outputs, no gold data) |
-| `experiments/oss_models/` | The multi-model comparison (open- and closed-source models via Amazon Bedrock) |
-| `experiments/evaluation/` | Execution-accuracy scorers and gold precomputation (`precompute_gold.py`) |
-| `llm_utils/prompt_helpers.py` | Bedrock client helper used by the model runners |
-
-## Setup
+## Quick start
 
 ```bash
-python3 -m venv .venv && source .venv/bin/activate
-pip install boto3 pm4py networkx   # core runtime dependencies
+python3 -m venv .venv && source .venv/bin/activate   # Python >= 3.12
+pip install -r requirements.txt
+./setup_data.sh                                      # fetch benchmark + event log
+
+python3 run.py --limit 4 --configs model_upgrade     # smoke test, a few cents
+python3 run.py                                       # full ladder (or: ./run.sh)
 ```
 
-Dependencies (`boto3`, `pm4py`, `networkx`, and the agent SDK used for the
-agent configurations) are installed from PyPI and are not bundled here.
+A full run generates 1,655 questions per configuration: hours of wall time and
+real Bedrock cost. Start with `--limit`.
+
+```
+  configuration                   this run    paper
+  Model-Baseline (GPT-3.5)              --    47.6%
+  Model-Sonnet   (model upgrade)        --    62.7%
+  Model-FewShot  (+ few-shot)           --    70.9%
+  Model-Agent    (+ validation loop)    --    73.7%
+  Model-Full     (+ domain, PM tool)    --    79.4%
+```
+
+## Usage
+
+### `run.py` options
+
+| Option | Meaning |
+|---|---|
+| `--configs NAME…` | Which rungs of the ladder to run: `model_upgrade`, `few_shot`, `agent`, `full`. Default: all four. |
+| `--models [NAME…]` | Run the multi-model comparison instead of the ladder. With no values, all models; otherwise a subset (see below). |
+| `--no-pm-data` | Run the `full` configuration as the paper's ablation: the `get_process_info` tool is present but its artifacts are withheld. |
+| `--limit N` | Use only the first N questions. For smoke tests; accuracies are not comparable to the paper. |
+| `--workers N` | Parallel Bedrock workers. Default: one per role ARN, or 1 on default credentials. Higher is faster but risks throttling. |
+| `--out DIR` | Where predictions, per-question scores and `results.json` are written. Default `runs/`. |
+
+Predictions are written incrementally and a re-run resumes, skipping questions
+already answered. So an interrupted run can simply be repeated, and a question
+that failed with a Bedrock API error is retried automatically (up to three
+rounds); anything still unanswered is scored as incorrect rather than dropped.
+
+### Reproducing each part of the paper
+
+```bash
+# the ablation ladder (Table 1)
+python3 run.py
+
+# the process-mining artifact ablation (Model-Full, artifacts withheld)
+python3 run.py --configs full --no-pm-data
+
+# the multi-model comparison (Figure 3)
+python3 run.py --models
+python3 run.py --models qwen3-32b deepseek-r1          # a subset
+```
+
+Available models for `--models`: `claude-thinking` (Claude Sonnet with extended
+thinking), `claude-sonnet`, `deepseek-v3.2`, `deepseek-r1`, `gpt-oss-20b`,
+`gpt-oss-120b`, `qwen3-32b`. The comparison runs the few-shot configuration and
+scores the 1,613 questions outside the few-shot example groups, as the paper
+does. Request access to each model in your Bedrock account first.
+
+### The `full` configuration and its artifacts
+
+`full` adds a `get_process_info` tool backed by pm4py artifacts computed from the
+raw event log. Generate them once:
+
+```bash
+./setup_data.sh --with-xes
+python3 architecture/process_mining/precompute_pm_artifacts.py
+python3 run.py --configs full
+```
+
+Without the artifacts the tool returns an error for every request, which is the
+ablation condition; pass `--no-pm-data` to run that deliberately.
 
 ### Credentials
 
-Model calls run on **Amazon Bedrock** and use the default boto3 credential
-chain. To use cross-account Bedrock role assumption, set your own role ARNs via
-the `BEDROCK_ROLE_ARNS` environment variable (comma-separated) or edit the
-documented placeholder in `llm_utils/prompt_helpers.py`. With neither set, the
-default single-account credentials are used.
+Generation runs on **Amazon Bedrock** through the default boto3 credential chain
+(environment variables, `~/.aws`, or an attached role). To spread load across
+several accounts, set `BEDROCK_ROLE_ARNS` to a comma-separated list of role ARNs
+to assume; otherwise a single default client is used. Set `AWS_REGION` to
+override the region.
+
+### `setup_data.sh`
+
+| Invocation | Fetches |
+|---|---|
+| `./setup_data.sh` | `dataset.tsv` and `event_log.sqlite` — enough for every configuration except the `full` artifacts |
+| `./setup_data.sh --with-xes` | also the raw BPIC 2020 XES log, needed only to regenerate the process-mining artifacts |
+
+Both are idempotent. Set `BENCH_DIR` to reuse an existing benchmark checkout.
+
+### Scoring on its own
+
+To score a predictions file without regenerating it:
+
+```bash
+python3 evaluator/score.py OUT_DIR  mytag=runs/full.tsv   # -> OUT_DIR/mytag.json
+```
+
+## Layout
+
+- `run.py` / `run.sh` — generate on Bedrock, score, and report
+- `architecture/` — the method, one directory per rung: `model_upgrade`,
+  `few_shot` (plus the multi-model and extended-thinking runners), `agent`,
+  `full`, and `process_mining` (the artifact generator)
+- `evaluator/` — the benchmark authors' test-suite evaluator and a scorer wrapper
+- `pmsql/` — shared library (dataset loader, scoring helpers, Bedrock client)
+- `llm_utils/` — the Bedrock client used by the generators
 
 ## Data
 
-The benchmark and event log are **not included** and must be obtained from their
-original sources:
+`setup_data.sh` fetches, into this directory, from the original sources (nothing
+is redistributed here):
 
-- Text-2-SQL-4-PM benchmark: https://github.com/pm-usp/text-2-sql
-- BPIC 2020 International Declarations: https://data.4tu.nl/ (CC BY-NC 4.0)
-
-`experiments/evaluation/gold_results.json` (precomputed gold query results) is
-likewise not distributed; regenerate it locally with
-`experiments/evaluation/precompute_gold.py` after obtaining the benchmark and
-event log.
-
-## Reproducing the results
-
-```bash
-# 5-fold cross-validated ladder (main results, complexity breakdown, failures)
-bash experiments_v2/run_ladder.sh
-
-# multi-model comparison (open- and closed-source models)
-bash experiments/oss_models/run_all_oss.sh
-```
-
-See `experiments_v2/README.md` for the ladder's rungs, folds, and scoring
-details.
+- the Text-2-SQL-4-PM benchmark — https://github.com/pm-usp/text-2-sql
+- the BPIC 2020 International Declarations event log — https://data.4tu.nl/ (CC BY-NC 4.0)
 
 ## Citation
 
-If you use this code, please cite the PM-SQL paper and the Text-2-SQL-4-PM
-benchmark it builds on.
+_BibTeX to be added on publication._
 
 ## License
 
-Licensed under **Creative Commons Attribution-NonCommercial 4.0 International
-(CC BY-NC 4.0)**; see [LICENSE](LICENSE). Copyright Amazon.com, Inc. or its
-affiliates.
-
-This is a research artifact released to support a scientific publication; it is
-provided as-is, without warranty, and is not an officially supported Amazon
-product.
+[CC BY-NC 4.0](LICENSE). Copyright Amazon.com, Inc. or its affiliates. Research
+artifact, provided as-is; not an officially supported Amazon product.

@@ -1,0 +1,19 @@
+# PM-SQL dependencies. Python >= 3.12, SQLite >= 3.25 (window functions).
+# reproduce.py needs NONE of these (standard library only); they are for
+# re-scoring predictions (evaluator/) and regenerating them (architecture/).
+
+# Re-scoring with the benchmark authors' evaluator (evaluator/):
+sqlparse>=0.4           # testsuite SQL parser
+func_timeout>=4.3       # testsuite per-query timeout
+
+# Generating SQL via Amazon Bedrock (architecture/):
+boto3>=1.34,<2
+botocore>=1.34,<2
+strands-agents>=1.0,<2  # the agent loop
+
+# Regenerating the process-mining artifacts (architecture/precompute_pm_artifacts.py):
+pm4py>=2.7,<3
+networkx>=3.0
+
+# Only on hosts whose system SQLite predates 3.25:
+pysqlite3-binary; sys_platform == "linux"

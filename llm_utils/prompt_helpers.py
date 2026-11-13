@@ -34,7 +34,8 @@ logger = logging.getLogger(__name__)
 # Configuration — edit these as needed
 # ============================================================================
 
-REGION = "us-east-1"
+# Bedrock region. Model availability differs by region, so allow an override.
+REGION = os.environ.get("AWS_REGION", "us-east-1")
 
 # Errors that should NEVER be retried (client-side mistakes)
 NON_RETRYABLE_ERROR_CODES = {
@@ -76,7 +77,9 @@ def _calculate_backoff(attempt: int, base: float = 1.0, max_delay: float = 30.0)
 # Alternatively, set them at runtime via the BEDROCK_ROLE_ARNS environment
 # variable (comma-separated). If none are provided, the code falls back to the
 # default boto3 credential chain (single account, no cross-account role).
-ROLE_ARNS = [a.strip() for a in os.environ.get("BEDROCK_ROLE_ARNS", "").split(",") if a.strip()]
+ROLE_ARNS = [a.strip() for a in os.environ.get("BEDROCK_ROLE_ARNS", "").split(",") if a.strip()] or [None]
+# [None] means: use the default boto3 credential chain (single account,
+# no cross-account role assumption). Set BEDROCK_ROLE_ARNS to override.
 
 # Models
 SONNET_4_6 = "us.anthropic.claude-sonnet-4-6"
